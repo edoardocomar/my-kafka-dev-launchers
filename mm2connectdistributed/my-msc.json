@@ -1,0 +1,20 @@
+{
+  "name": "my-msc",
+  "config" : {
+  "connector.class": "org.apache.kafka.connect.mirror.MirrorSourceConnector",
+  "offset-syncs.topic.location" : "target",
+  "sync.topic.acls.enabled": false,
+  "topics": ".*",
+  "source.cluster.alias": "my-source",
+  "source.cluster.bootstrap.servers": "localhost:9092,localhost:9292",
+  "target.cluster.alias": "my-target",
+  "target.cluster.bootstrap.servers": "localhost:19092,localhost:19292",
+  "replication.factor": "1",
+  "tasks.max": "4",
+  "offset.lag.max":"10",
+  "refresh.topics.interval.seconds":"5",
+  "sync.topic.configs.interval.seconds": "5",
+  "offset-syncs.topic.replication.factor":"1",
+  "consumer.isolation.level" : "read_committed"
+  }
+}

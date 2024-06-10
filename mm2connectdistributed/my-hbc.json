@@ -1,0 +1,12 @@
+{
+  "name": "my-hbc",
+  "config" : {
+  "connector.class": "org.apache.kafka.connect.mirror.MirrorHeartbeatConnector",
+  "source.cluster.alias": "my-source",
+  "source.cluster.bootstrap.servers": "localhost:9092,localhost:9292",
+  "target.cluster.alias": "my-target",
+  "target.cluster.bootstrap.servers": "localhost:19092,localhost:19292",
+  "emit.heartbeats.interval.seconds" : "5",
+  "heartbeats.topic.replication.factor":"1"
+   }
+}

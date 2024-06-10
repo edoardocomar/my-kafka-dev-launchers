@@ -1,0 +1,17 @@
+{
+  "name": "my-cpc",
+  "config" : {
+  "connector.class": "org.apache.kafka.connect.mirror.MirrorCheckpointConnector",
+  "offset-syncs.topic.location" : "target",
+  "source.cluster.alias": "my-source",
+  "source.cluster.bootstrap.servers": "localhost:9092,localhost:9292",
+  "target.cluster.alias": "my-target",
+  "target.cluster.bootstrap.servers": "localhost:19092,localhost:19292",
+  "replication.factor": "1",
+  "emit.checkpoints.interval.seconds" : "5",
+  "refresh.groups.interval.seconds":"5",
+  "sync.group.offsets.enabled" : "true",
+   "sync.group.offsets.interval.seconds" : "5",
+   "checkpoints.topic.replication.factor":"1"
+  }
+}
