@@ -2,8 +2,8 @@
 
 Shell scripts used for development to run local Kafka instance(s)
 
-* 3-kraft-servers:
-  A 3-Node Kraft cluster 
+* 3-kraft-servers-and-3-brokers:
+  A 3-Node Kraft cluster (plus 3 optional brokers)
 
 * mm2connectdistributed:
   Two 2-nodes Kafka clusters and a 2-workers Connect cluster used to run MirroMaker2 in "Connect distributed" mode

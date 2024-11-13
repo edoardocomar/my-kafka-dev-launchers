@@ -21,7 +21,7 @@ if [ "x$KAFKA_LOG4J_OPTS" = "x" ]; then
 fi
 
 if [ "x$KAFKA_HEAP_OPTS" = "x" ]; then
-    export KAFKA_HEAP_OPTS="-Xmx1G -Xms1G"
+    export KAFKA_HEAP_OPTS="-Xmx2G -Xms2G"
 fi
 
 EXTRA_ARGS=${EXTRA_ARGS-'-name kafkaServer -loggc'}
@@ -37,13 +37,13 @@ case $COMMAND in
 esac
 
 export KAFKA_JMX_OPTS="-Djava.rmi.server.hostname=127.0.0.1"
-export LOG_DIR=${HOME}/tmp/3kafkas/logs1
+export LOG_DIR=${HOME}/tmp/3or6kafkas/logs0
 mkdir -p ${LOG_DIR}
 
-$base_dir/kafka-storage.sh format --config config/kraft/my-server1.properties --cluster-id lTGdS9wQTBiBiYFwi5jiCA --ignore-formatted
+$base_dir/kafka-storage.sh format --config config/kraft/my-server0.properties --cluster-id lTGdS9wQTBiBiYFwi5jiCA --ignore-formatted
 
 export KAFKA_DEBUG=yes
 export DEBUG_SUSPEND_FLAG=n
-export JAVA_DEBUG_PORT=6006
+export JAVA_DEBUG_PORT=5005
 
-exec $base_dir/kafka-run-class.sh $EXTRA_ARGS kafka.Kafka config/kraft/my-server1.properties "$@"
+exec $base_dir/kafka-run-class.sh $EXTRA_ARGS kafka.Kafka config/kraft/my-server0.properties "$@"

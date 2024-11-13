@@ -37,13 +37,13 @@ case $COMMAND in
 esac
 
 export KAFKA_JMX_OPTS="-Djava.rmi.server.hostname=127.0.0.1"
-export LOG_DIR=${HOME}/tmp/3kafkas/logs2
+export LOG_DIR=${HOME}/tmp/3or6kafkas/logs4
 mkdir -p ${LOG_DIR}
 
-$base_dir/kafka-storage.sh format --config config/kraft/my-server2.properties --cluster-id lTGdS9wQTBiBiYFwi5jiCA --ignore-formatted
+$base_dir/kafka-storage.sh format --config config/kraft/my-broker4.properties --cluster-id lTGdS9wQTBiBiYFwi5jiCA --ignore-formatted
 
-export KAFKA_DEBUG=yes
+export KAFKA_DEBUG=no
 export DEBUG_SUSPEND_FLAG=n
-export JAVA_DEBUG_PORT=7007
+export JAVA_DEBUG_PORT=5405
 
-exec $base_dir/kafka-run-class.sh $EXTRA_ARGS kafka.Kafka config/kraft/my-server2.properties "$@"
+exec $base_dir/kafka-run-class.sh $EXTRA_ARGS kafka.Kafka config/kraft/my-broker4.properties "$@"
