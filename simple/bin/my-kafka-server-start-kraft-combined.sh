@@ -23,7 +23,7 @@ base_dir=$(dirname $0)
 
 if [ "x$KAFKA_LOG4J_OPTS" = "x" ]; then
     # export KAFKA_LOG4J_OPTS="-Dlog4j.configuration=file:$base_dir/../config/my-log4j.properties"
-    export KAFKA_LOG4J_OPTS="-Dlog4j2.configurationFile=$base_dir/../config/my-log4j2.yaml"
+    export KAFKA_LOG4J_OPTS="-Dlog4j2.configurationFile=$base_dir/../config/log4j2.yaml"
 fi
 
 if [ "x$KAFKA_HEAP_OPTS" = "x" ]; then
@@ -46,8 +46,8 @@ export KAFKA_JMX_OPTS="-Djava.rmi.server.hostname=127.0.0.1"
 export LOG_DIR=${HOME}/tmp/kafkalocal/kraft-combined-log4j-logs
 mkdir -p ${LOG_DIR}
 
-$base_dir/kafka-storage.sh format --config config/kraft/my-server.properties --cluster-id "n86-fbTvQJGDrt18x1Re9w" --ignore-formatted
+$base_dir/kafka-storage.sh format --config config/my-server.properties --cluster-id "n86-fbTvQJGDrt18x1Re9w" --ignore-formatted --standalone
 
 export KAFKA_DEBUG=yes
 export DEBUG_SUSPEND_FLAG=n
-exec $base_dir/kafka-run-class.sh $EXTRA_ARGS kafka.Kafka config/kraft/my-server.properties "$@"
+exec $base_dir/kafka-run-class.sh $EXTRA_ARGS kafka.Kafka config/my-server.properties "$@"
