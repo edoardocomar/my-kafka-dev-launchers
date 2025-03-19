@@ -40,6 +40,6 @@ esac
 export KAFKA_JMX_OPTS="-Djava.rmi.server.hostname=127.0.0.1"
 export LOG_DIR=${HOME}/tmp/mm2/source1/logs
 mkdir -p ${LOG_DIR}
-$base_dir/kafka-storage.sh format --config config/kraft/my-server-source1.properties --cluster-id "rwOKHopvSkGMevAt1WmoYQ" --ignore-formatted
+$base_dir/kafka-storage.sh format --config config/my-server-source1.properties --cluster-id "rwOKHopvSkGMevAt1WmoYQ" --ignore-formatted
 
-exec $base_dir/kafka-run-class.sh $EXTRA_ARGS kafka.Kafka config/kraft/my-server-source1.properties "$@"
+exec $base_dir/kafka-run-class.sh $EXTRA_ARGS kafka.Kafka config/my-server-source1.properties "$@"
